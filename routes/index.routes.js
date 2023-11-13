@@ -42,6 +42,7 @@ router.post('/anime/create', (req, res) => {
     console.log(error);
   });
 });
+
 /////////////////////// SINGLE ANIME ///////////////////////////////////
 // GET Single Anime
 
@@ -51,33 +52,81 @@ router.get("/anime/:id", (req, res) => {
   Anime.findById(animeId)
   .then((response) => {
     console.log(response);
-    res.render("anime/anime.hbs", { anime: response });
-  }) .catch((error) => {
+    res.render("anime/anime.hbs", { anime: response })
+  }).catch((error) => {
     console.log(error);
   });
-})
+});
 
 /////////////////////// UPDATE ANIME ///////////////////////////////////
-// Update an Anime
 
 // GET
-
+router.get("/anime/update/:id", (req, res) => {
+  const animeId = req.params.id;
+  Anime.findById(animeId)
+  .then((response) => {
+    console.log(response);
+    res.render("anime/update.hbs", { anime: response })
+  }).catch((error) => { 
+    console.log(error); 
+  });
+});
 // PUT (modify)
-
-
-// DELETE Anime
-
-
-///////////////////////////////////////////
-
-// LOGIN 
-
-// SIGNUP
+router.post("/anime/update/:id", (req, res) => {
+  const animeId = req.params.id;
+  const updatedAnime = req.body;
+  
+  Anime.findByIdAndUpdate(animeId, updatedAnime)
+  .then((response) => {
+    console.log(response)
+    res.redirect("/anime/anime-library")
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+////////////////////// DELETE ANIME ////////////////////////////////////
+router.get("/anime/delete/:id", (req, res) => {
+  const animeId = req.params.id;
+  Anime.findByIdAndDelete(animeId)
+ .then(() => {
+  res.redirect("/anime/anime-library");
+})
+.catch((error) => {
+    console.log(error);
+    });
+  });
 
 /////////////////////// PROFILE/////////////////////
 // GET route
 router.get("/profile", (req, res) => {
   res.render("profile.hbs")
 })
+
+=======
+router.post("/anime/update/:id", (req, res) => {
+  const animeId = req.params.id;
+  const updatedAnime = req.body;
+  
+  Anime.findByIdAndUpdate(animeId, updatedAnime)
+  .then((response) => {
+    console.log(response)
+    res.redirect("/anime/anime-library")
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+////////////////////// DELETE ANIME ////////////////////////////////////
+router.get("/anime/delete/:id", (req, res) => {
+  const animeId = req.params.id;
+  Anime.findByIdAndDelete(animeId)
+ .then(() => {
+  res.redirect("/anime/anime-library");
+})
+.catch((error) => {
+    console.log(error);
+    });
+  });
 
 module.exports = router;

@@ -1,0 +1,27 @@
+<h1>Update Anime</h1>
+
+<form method="post" action="/anime/update/{{anime._id}}">
+    <label for="title">Title
+        <input name="title" type="text" value="{{anime.title}}"/>
+    </label>
+
+    <label for="description">Description
+        <input name="description" type="text" value="{{anime.description}}"/>
+    </label>
+
+    <label for="characters">Characters
+        <input name="characters" type="text" value="{{anime.characters}}"/>
+    </label>
+
+{{!-- drop down option --}}
+    <label for="genre">Genre
+        <input name="genre" type="text" value="{{anime.genre}}"/>
+    </label>
+
+{{!-- drop down option --}}
+    <label for="airDate">Date Aired From
+        <input name="airDate" type="text" value="{{anime.airDate}}"/>
+    </label>
+    <button>Update Anime</button>
+</form>
+
