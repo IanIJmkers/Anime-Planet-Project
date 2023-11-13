@@ -2,7 +2,16 @@
 
 <p>{{anime.description}}</p>
 
-<a href="">Update</a>
-<a href="">Delete</a>
+<p>{{anime.characters}}</p>
 
+<p>{{anime.genre}}</p>
+
+<p>{{anime.airDate}}</p>
+
+<a href="/anime/update/{{anime._id}}">Update</a>
+<a href="/anime/delete/{{anime._id}}">Delete</a>
+<br/>
+
+
+<a href="/anime/anime-library">Go back to anime library</a>
 {{!-- Show reviews here --}}
