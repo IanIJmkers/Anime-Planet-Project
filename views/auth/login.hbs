@@ -1,1 +1,15 @@
-<h1>Login</h1>
+<h1>Login Please</h1>
+
+<form method="post" action="/auth/login">
+  <label>Email:
+    <input type="email" name="email" />
+  </label>
+  <label>Password:
+    <input type="password" name="password" />
+  </label>
+  <button>Login</button>
+</form>
+
+{{#if errorMessage}}
+  <p class="error">{{errorMessage}}</p>
+{{/if}}

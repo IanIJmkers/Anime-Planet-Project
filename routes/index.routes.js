@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Anime = require("../models/Anime.model");
+const User = require("../models/User.model");
 /* GET home page */
 router.get("/", (req, res, next) => {
     res.render("index")
@@ -69,9 +70,14 @@ router.get("/anime/:id", (req, res) => {
 
 ///////////////////////////////////////////
 
-
 // LOGIN 
 
 // SIGNUP
+
+/////////////////////// PROFILE/////////////////////
+// GET route
+router.get("/profile", (req, res) => {
+  res.render("profile.hbs")
+})
 
 module.exports = router;
