@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Anime = require("../models/Anime.model");
+const User = require("../models/User.model");
 /* GET home page */
 router.get("/", (req, res, next) => {
     res.render("index")
@@ -95,4 +96,37 @@ router.get("/anime/delete/:id", (req, res) => {
     console.log(error);
     });
   });
+
+/////////////////////// PROFILE/////////////////////
+// GET route
+router.get("/profile", (req, res) => {
+  res.render("profile.hbs")
+})
+
+=======
+router.post("/anime/update/:id", (req, res) => {
+  const animeId = req.params.id;
+  const updatedAnime = req.body;
+  
+  Anime.findByIdAndUpdate(animeId, updatedAnime)
+  .then((response) => {
+    console.log(response)
+    res.redirect("/anime/anime-library")
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+});
+////////////////////// DELETE ANIME ////////////////////////////////////
+router.get("/anime/delete/:id", (req, res) => {
+  const animeId = req.params.id;
+  Anime.findByIdAndDelete(animeId)
+ .then(() => {
+  res.redirect("/anime/anime-library");
+})
+.catch((error) => {
+    console.log(error);
+    });
+  });
+
 module.exports = router;
