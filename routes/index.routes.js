@@ -101,9 +101,7 @@ router.get("/anime/delete/:id", (req, res) => {
 // GET route
 router.get("/profile", (req, res) => {
   res.render("profile.hbs")
-})
-
-=======
+});
 router.post("/anime/update/:id", (req, res) => {
   const animeId = req.params.id;
   const updatedAnime = req.body;

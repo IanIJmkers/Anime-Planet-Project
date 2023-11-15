@@ -1,14 +1,33 @@
-<h1>Login Please</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<div class="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-6 lg:px-8">      
+    <div class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <h1>Login</h1>
+    </div>
 
-<form method="post" action="/auth/login">
-  <label>Email:
-    <input type="email" name="email" />
-  </label>
-  <label>Password:
-    <input type="password" name="password" />
-  </label>
-  <button>Login</button>
-</form>
+
+<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+  <div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
+    <form class ="mb-0 space-y-6" method="post" action="/auth/login">
+      <label class="block text-sm font-medium text-gray-700">Email:
+        <div class="mt-1">
+          <input type="email" name="email" class="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm"/>
+        </div>
+      </label>
+
+      <label class="block text-sm font-medium text-gray-700">Password:
+        <div class="mt-1">
+          <input type="password" name="password" class="w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm"/>
+        </div>
+      </label>
+
+      <button type="submit"class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
+    </form>
+  </div>
+</div>
 
 {{#if errorMessage}}
   <p class="error">{{errorMessage}}</p>
