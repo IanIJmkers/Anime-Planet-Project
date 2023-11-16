@@ -15,6 +15,8 @@ const hbs = require("hbs");
 
 const app = express();
 
+require("./config/session.config.js")(app);
+
 const bodyParser = require("body-parser");
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
@@ -24,7 +26,9 @@ require("./config")(app);
 const capitalize = require("./utils/capitalize");
 const projectName = "Anime-Planet";
 
-app.locals.appTitle = `${capitalize(projectName)} created by your local animegeeks - Abdulian`;
+app.locals.appTitle = `${capitalize(
+  projectName
+)} created by your local animegeeks - Abdulian`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
@@ -39,15 +43,17 @@ app.use("/auth", authRoutes);
 app.use(bodyParser.json());
 
 app.post("/anime/create/:id", (req, res) => {
-    const requiredTitle = req.body.title;
-    const requiredDescription = req.body.description;
-    const requiredAirDate = req.body.airDate;
+  const requiredTitle = req.body.title;
+  const requiredDescription = req.body.description;
+  const requiredAirDate = req.body.airDate;
 
-    if (!requiredTitle  || !requiredDescription || !requiredAirDate) {
-        return res.status(400).json({ error: "Please fill in all required fields"} )
-    }
-    res.json({ success: true });
+  if (!requiredTitle || !requiredDescription || !requiredAirDate) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all required fields" });
+  }
+  res.json({ success: true });
 });
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
-require('./error-handling')(app);
+require("./error-handling")(app);
 module.exports = app;
