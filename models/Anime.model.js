@@ -6,7 +6,7 @@ const animeSchema = new Schema(
     title: {
       type: String,
       trim: true,
-      required: false,
+      required: true,
       unique: true
     },
     description: {
@@ -19,7 +19,7 @@ const animeSchema = new Schema(
     },
     genre: {
       type: String,
-      required: true,
+      required: false,
     },
     airDate: {
       type: String,

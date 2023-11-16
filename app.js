@@ -5,9 +5,18 @@ require("dotenv").config();
 // ℹ️ Connects to the database
 require("./db");
 
+module.exports = {
+
+    content: [
+        "./node_modules/flowbite/**/*.js"
+    ]
+
+}
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
+
+require("./config/session.config.js")(app);
 
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
