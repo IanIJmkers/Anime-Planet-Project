@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Anime = require("../models/Anime.model");
 const User = require("../models/User.model");
+const {isLoggedIn} = require("../middleware/route-guard")
 /* GET home page */
 router.get("/", (req, res, next) => {
-    res.render("index")
+  res.render("index")
 });
 
 ///////////////////////// ALL ANIME ///////////////////////////////////
@@ -42,7 +43,6 @@ router.post('/anime/create', (req, res) => {
     console.log(error);
   });
 });
-
 /////////////////////// SINGLE ANIME ///////////////////////////////////
 // GET Single Anime
 
@@ -99,9 +99,11 @@ router.get("/anime/delete/:id", (req, res) => {
 
 /////////////////////// PROFILE/////////////////////
 // GET route
-router.get("/profile", (req, res) => {
-  res.render("profile.hbs")
-});
+router.get("/profile", isLoggedIn, (req, res) => {
+  const loggedInUser = req.session.currentUser
+  res.render("profile.hbs", {loggedInUser})
+})
+
 router.post("/anime/update/:id", (req, res) => {
   const animeId = req.params.id;
   const updatedAnime = req.body;
