@@ -8,6 +8,7 @@ router.get("/anime/create", (req, res) => {
     res.render("anime/anime.hbs");
 });
 
+
 // router.post("/create", async (req, res) => {
 //     try {
 //     const newAnime = await AnimeModel.create(req.body);

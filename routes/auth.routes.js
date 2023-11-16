@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/User.model');
 const bcryptjs = require('bcryptjs');
+const {isLoggedOut} = require("../middleware/route-guard")
 
 // GET route for signup
 router.get("/signup", (req, res) => {
@@ -9,7 +10,7 @@ router.get("/signup", (req, res) => {
 })
 
 // GET route for login
-router.get("/login", (req, res) => {
+router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login.hbs");
 })
 
@@ -34,9 +35,10 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-//POST routes for login
+// POST routes for login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log("SESSION =====> ", req.session)
   const foundUser = await UserModel.findOne({ email: req.body.email });
   //check if there is a user with the email
   //if no user, then show the login page again with a  message
@@ -49,10 +51,22 @@ router.post("/login", async (req, res) => {
       foundUser.password
     );
     if (doesPasswordMatch) {
-      res.render("profile.hbs", { user: foundUser });
+      req.session.currentUser = foundUser
+      res.redirect("/profile");
     } else {
       res.render("auth/login", { errorMessage: "Incorrect Details" });
     }
   }
+});
+
+//Logout Route
+router.post("/logout", (req, res, next) => {
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect("/auth/signup");
+    }
+  });
 });
 module.exports = router;

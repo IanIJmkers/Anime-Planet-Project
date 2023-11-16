@@ -6,5 +6,7 @@ module.exports = {
     "./node_modules/tw-elements/dist/js/**/*.js",
   ],
   darkMode: "class",
-  plugins: [require("tw-elements/dist/plugin.cjs")]
+  plugins: [require("tw-elements/dist/plugin.cjs")],
+  plugins: [require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
 }

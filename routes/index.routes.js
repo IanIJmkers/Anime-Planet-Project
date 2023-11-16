@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Anime = require("../models/Anime.model");
 const User = require("../models/User.model");
+const {isLoggedIn} = require("../middleware/route-guard")
+
 /* GET home page */
 router.get("/", (req, res, next) => {
     res.render("index")
@@ -17,6 +19,19 @@ router.get("/anime/anime-library", (req, res,) => {
     console.log(response);
   
   res.render("anime/anime-library", { anime: response });
+  })
+});
+
+
+///////////////////////// USER ANIME LIBRARY ///////////////////////////////////
+
+// GET
+router.get("/anime/user-anime-library", (req, res,) => {
+  Anime.find()
+  .then((response) => {
+    console.log(response);
+  
+  res.render("anime/user-anime-library", { anime: response });
   })
 });
 
@@ -99,13 +114,13 @@ router.get("/anime/delete/:id", (req, res) => {
 
 /////////////////////// PROFILE/////////////////////
 // GET route
-router.get("/profile", (req, res) => {
-  res.render("profile.hbs")
-});
+router.get("/profile", isLoggedIn, (req, res) => {
+  const loggedInUser = req.session.currentUser
+  res.render("profile.hbs", {loggedInUser})
+})
 router.post("/anime/update/:id", (req, res) => {
   const animeId = req.params.id;
   const updatedAnime = req.body;
-  
   Anime.findByIdAndUpdate(animeId, updatedAnime)
   .then((response) => {
     console.log(response)

@@ -15,6 +15,7 @@ module.exports = {
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
+const app = express();
 
 require("./config/session.config.js")(app);
 
@@ -22,7 +23,7 @@ require("./config/session.config.js")(app);
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
-const app = express();
+
 
 const bodyParser = require("body-parser");
 
