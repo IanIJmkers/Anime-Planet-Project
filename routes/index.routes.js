@@ -52,7 +52,7 @@ router.post('/anime/create', (req, res) => {
   Anime.create(newAnime)
   .then((response) => {
     console.log(response);
-    res.redirect("/anime/anime-library");
+    res.redirect("/anime/user-anime-library");
   }).catch((error) => {
     console.log(error);
   });
@@ -94,7 +94,7 @@ router.post("/anime/update/:id", (req, res) => {
   Anime.findByIdAndUpdate(animeId, updatedAnime)
   .then((response) => {
     console.log(response)
-    res.redirect("/anime/anime-library")
+    res.redirect("/anime/user-anime-library")
   })
   .catch((error) => {
     console.log(error);
@@ -105,7 +105,7 @@ router.get("/anime/delete/:id", (req, res) => {
   const animeId = req.params.id;
   Anime.findByIdAndDelete(animeId)
  .then(() => {
-  res.redirect("/anime/anime-library");
+  res.redirect("/anime/user-anime-library");
 })
 .catch((error) => {
     console.log(error);
@@ -124,7 +124,7 @@ router.post("/anime/update/:id", (req, res) => {
   Anime.findByIdAndUpdate(animeId, updatedAnime)
   .then((response) => {
     console.log(response)
-    res.redirect("/anime/anime-library")
+    res.redirect("/anime/user-anime-library")
   })
   .catch((error) => {
     console.log(error);
@@ -135,7 +135,7 @@ router.get("/anime/delete/:id", (req, res) => {
   const animeId = req.params.id;
   Anime.findByIdAndDelete(animeId)
  .then(() => {
-  res.redirect("/anime/anime-library");
+  res.redirect("/anime/user-anime-library");
 })
 .catch((error) => {
     console.log(error);

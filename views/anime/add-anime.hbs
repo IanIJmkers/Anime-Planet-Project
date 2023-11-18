@@ -1,27 +1,39 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
 <h1>Add Anime</h1>
 
 <form method="post" action="/anime/create">
     <label for="title">Title
         <input name="title" type="text"/>
     </label>
-
+<br>
     <label for="description">Description
         <input name="description" type="text"/>
     </label>
-
+<br>
     <label for="characters">Characters
         <input name="characters" type="text"/>
     </label>
-
+<br>
 {{!-- drop down option --}}
     <label for="genre">Genre
         <input name="genre" type="text"/>
     </label>
-
+<br>
 {{!-- drop down option --}}
     <label for="airDate">Date Aired From
         <input name="airDate" type="text"/>
     </label>
+<br>
+    <label for="image">Anime Image
+        <input name="image" type="file"/>
+        
+    </label>
+    <br>
     <button>Create an Anime</button>
 </form>
 

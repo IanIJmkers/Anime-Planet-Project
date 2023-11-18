@@ -1,28 +1,39 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
 <h1>Update Anime</h1>
 
 <form method="post" action="/anime/update/{{anime._id}}">
-    <label for="title">Title
-        <input name="title" type="text" value="{{anime.title}}" required="true"/>
+    <label for="title">Title:
+        <input name="title" type="text" value="{{anime.title}}"/>
     </label>
-
-    <label for="description">Description
-        <input name="description" type="text" value="{{anime.description}}" required="true" />
+<br>
+    <label for="description">Description:
+        <input name="description" type="text" value="{{anime.description}}"/>
     </label>
-    
-    <label for="characters">Characters
-        <input name="characters" type="text" value="{{anime.characters}}" required="false"/>
+   <br> 
+    <label for="characters">Characters:
+        <input name="characters" type="text" value="{{anime.characters}}"/>
     </label>
-
+<br>
 {{!-- drop down option --}}
-    <label for="genre">Genre
-        <input name="genre" type="text" value="{{anime.genre}}" required="true"/>
+    <label for="genre">Genre:
+        <input name="genre" type="text" value="{{anime.genre}}"/>
+    </label>
+<br>
+{{!-- drop down option --}}
+    <label for="airDate">Date Aired From:
+        <input name="airDate" type="text" value="{{anime.airDate}}"/>
+    </label>
+<br>
+    <label for="image">Anime Image:
+        <input name="image" type="file" value="{{anime.image}}"/>
     </label>
 
-{{!-- drop down option --}}
-    <label for="airDate">Date Aired From
-        <input name="airDate" type="text" value="{{anime.airDate}}" required="true"/>
-    </label>
-    
-    <button>Update Anime</button>
+    <button class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update Anime</button>
 </form>
 
