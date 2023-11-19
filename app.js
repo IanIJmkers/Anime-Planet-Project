@@ -48,16 +48,8 @@ app.use("/auth", authRoutes);
 
 app.use(bodyParser.json());
 
-app.post("/anime/create/:id", (req, res) => {
-    const requiredTitle = req.body.title;
-    const requiredDescription = req.body.description;
-    const requiredAirDate = req.body.airDate;
 
-    if (!requiredTitle  || !requiredDescription || !requiredAirDate) {
-        return res.status(400).json({ error: "Please fill in all required fields"} )
-    }
-    res.json({ success: true });
-});
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 module.exports = app;

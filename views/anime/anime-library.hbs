@@ -1,1 +1,12 @@
 <h1>API Anime Library</h1>
+
+{{#each animes}}
+<div class="card">
+    <img src="{{this.image}}" alt="{{this.name}}" width="300">
+</div>
+{{/each}}
+
+<a href="/">Main Menu</a>
+
+<a href="/auth/login">LOGIN</a>
+<a href="/auth/signup">SIGN UP</a>
