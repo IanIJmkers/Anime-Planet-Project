@@ -6,7 +6,10 @@
 
         <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
             {{!-- <img class="h-10 inline" src="https://"> --}}
-            <a href="/" class="text-2x1 font-[Poppins] cursor-pointer">Anime-Planet</a>
+            <a href="/">
+        
+                <img class="w-auto h-14 " src="./images/AP-LOGO.jpg">
+            </a>
             <ul class="md:flex md:items-center">
                 
                 <li class="mx-4">
@@ -45,6 +48,92 @@ bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 fo
                       
             </div>
         </div> 
-    </div>
+
+        {{!-- <div class="w-64 carousel rounded-box">
+            <div class="carousel-item w-full">
+                <img src="./images/BLEACH.jpg" class="w-full" />
+            </div> 
+            <div class="carousel-item w-full">
+                <img src="./images/FMA.jpg" class="w-full" />
+            </div> 
+            <div class="carousel-item w-full">
+                <img src="./images/JJK.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+            </div> 
+            <div class="carousel-item w-full">
+                <img src="./images/SPY-FAMILY.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+            </div> 
+            <div class="carousel-item w-full">
+                <img src="./images/ONE-PIECE.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+            </div> 
+            <div class="carousel-item w-full">
+                <img src="./images/STEINS-GATE.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+            </div> 
+        </div> --}}
+
+        {{!-- <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                <!-- Item 1 -->
+                <div class="duration-700 ease-in-out" data-carousel-item>
+                    <img src="./images/BLEACH.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                    <img src="./images/FMA.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="./images/JJK.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                </div>
+                <!-- Item 4 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="./images/ONE-PIECE.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                </div>
+                <!-- Item 5 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="./images/SPY-FAMILY.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+                </div>
+            </div>
+            <div class="flex justify-center items-center pt-4">
+                <button type="button" class="flex justify-center items-center me-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="text-gray-400 hover:text-gray-900 dark:hover:text-white group-focus:text-gray-900 dark:group-focus:text-white">
+                        <svg class="rtl:rotate-180 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="flex justify-center items-center h-full cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="text-gray-400 hover:text-gray-900 dark:hover:text-white group-focus:text-gray-900 dark:group-focus:text-white">
+                        <svg class="rtl:rotate-180 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+        </div> --}}
+
+        <div class="grid gap-4">
+            
+            <div class="grid grid-cols-5 gap-4">
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="./images/FMA.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="./images/JJK.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="./images/ONE-PIECE.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="./images/SPY-FAMILY.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg" src="./images/STEINS-GATE.jpg" alt="">
+                </div>
+            </div>
+        </div>
+     </div>
 </section>
     </body>

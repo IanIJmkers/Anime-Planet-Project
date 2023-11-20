@@ -9,4 +9,6 @@ module.exports = {
   plugins: [require("tw-elements/dist/plugin.cjs")],
   plugins: [require("daisyui")],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require('flowbite/plugin')],
+  plugins: [require("tw-elements/dist/plugin.cjs")],
 }
