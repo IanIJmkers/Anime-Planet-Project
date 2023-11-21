@@ -22,6 +22,7 @@ router.post("/anime/create/:id", (req, res) => {
 // External API Route
 router.get("/anime/anime-library", async (req, res) => {
     try {
+        //console.log("Anime Route")
         // ask API for Anime
         const animes = await fetch(
             "https://api.jikan.moe/v4/anime"
@@ -33,9 +34,13 @@ router.get("/anime/anime-library", async (req, res) => {
                 return {
                     name: anime.titles[0].title,
                     image: anime.images.jpg.image_url,
+                    episodes: anime.episodes,
+                    aired: anime.aired.from.slice(0, 10),
+                    genre: anime.genres[0].name,
                 };
             })
-            res.render('/anime-library.hbs', {animes:data})
+            console.log(firstTen)
+            res.render('anime/anime-library.hbs', {animes: firstTen})
     } catch(error) {
         console.log(error)
     }
