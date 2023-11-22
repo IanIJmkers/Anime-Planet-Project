@@ -1,12 +1,52 @@
-<h1>API Anime Library</h1>
+<nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
+            {{!-- <img class="h-10 inline" src="https://"> --}}
+            <a href="/">
+        
+                <img class="w-auto h-14 " src="/images/AP-LOGO.jpg">
+            </a>
+            <ul class="md:flex md:items-center">
+                
+                <li class="mx-4">
+                    <a href="/auth/login" class="cursor-pointer rounded-lg border-3 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+bg-gray-600  hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">LOGIN</a>
+                </li>
 
+                <li class="mx-4">          
+                    <a href="/auth/signup" class="cursor-pointer rounded-lg border-3 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">SIGNUP</a>
+                </li> 
+            </ul>        
+</nav>
+
+<div class="">
+<header class="">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+        
+        <h1 class="mb-12 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">/AnimeLibrary</h1>
+        <a href="/" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full bg-gradient-to-tl from-red-700 via-violet-500 to-violet-600 text-white hover:bg-gray-200 hover:bg-gray-700" role="alert">
+            <span class="text-sm font-medium px-4 py-1.5">Main Menu</span> 
+            <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+        </a>
+</header>
+
+<div class="card-container grid grid-cols-2 md:grid-cols-4 gap-4">
 {{#each animes}}
-<div class="card">
-    <img src="{{this.image}}" alt="{{this.name}}" width="300">
+
+<div class="content-center grid gap-4 card object-scale-down h-46 w-96 bg-base-100 shadow-xl rounded-xl">
+    <div class="card-body items-center text-center pt-10 pb-4">
+        <h3 class="flex justify-center items-center text-5xl font-extrabold pb-5">{{this.title}}
+            <a href="{{this._id}}" class="">{{this.name}}
+                <span class="inline-flex justify-between items-center py-2.5 pr-4 pl-3.5 mb-1 ml-5 mr-2 text-sm text-gray-700 bg-gray-100 rounded-full bg-gray-900 text-white hover:bg-gray-200 hover:bg-gray-700">See More</span>
+            </a>
+        </h3>
+        <span class="mb-0.5 text-gray-800 lg:text-lg pt-10">Original Air Date: {{this.aired}}</span>
+        <br>
+        <span class="mb-0.5 text-gray-800 lg:text-lg pt-10">Genre: {{this.genre}}</p>
+        {{!-- <p>{{this.episodes}}</p> --}}
+        <figure class="px-10 pb-10 pt-10 flex justify-center items-center">
+            <img class="object-scale-down h-76 w-96" src="{{this.image}}" alt="{{this.name}}" width="300">
+        </figure>
+    </div>
 </div>
 {{/each}}
-
-<a href="/">Main Menu</a>
-
-<a href="/auth/login">LOGIN</a>
-<a href="/auth/signup">SIGN UP</a>
+</div>

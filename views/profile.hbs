@@ -1,28 +1,36 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between">
+            {{!-- <img class="h-10 inline" src="https://"> --}}
+            <a href="/">
+        
+                <img class="w-auto h-14 " src="/images/AP-LOGO.jpg">
+            </a>
+            <ul class="md:flex md:items-center">
+                <li class="mx-4">          
+                    <a href="/" class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+bg-gray-600  hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">MAIN MENU</a>
+                </li> 
 
-<div class="flex flex-col w-full bg-gray-900 pt-20 min-h-screen">
-    <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
-        <h1 class="mb-4 text-3xl font-extrabold text-gray-900 text-white md:text-5xl lg:text-6xl">Welcome <span class="text-transparent bg-clip-text bg-gradient-to-tl from-red-700 via-violet-500 to-violet-600">{{loggedInUser.username}}</span> to your profile!</h1>
-    </div>
-    <div class="divider"></div>
-    <div class="text-2xl grid h-20 card bg-base-300 rounded-box place-items-center text-white">
-        <a href="/anime/user-anime-library">
-        <p>My Anime Library</p>
-        </a>
-    </div>
-    <div class="divider"></div> 
-    <div class="text-2xl grid h-20 card bg-base-300 rounded-box place-items-center text-white">
-        <a href="/">Main Menu</a>
-    </div> 
-    <div class="divider"></div> 
-    <div class="grid h-20 card bg-base-300 rounded-box place-items-center text-white">
-        <form method="post" action="/auth/logout">
-        <button class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
-        bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">LOGOUT</button>
-        </form>
-    </div>
+                <li class="mx-4">          
+                    <a href="/anime/user-anime-library" class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">MY ANIME LIBRARY</a>
+                </li> 
+            </ul>        
+</nav>
+
+<div class="bg-cover grid grid-cols-1 gap-2 p-10"
+    style="background-image: url('../images/BLEACH.jpg') ">
+  <div class="flex flex-col w-full  pt-20 min-h-screen w-72 h-72 bg-violet-600 bg-opacity-50 backdrop-blur-md rounded drop-shadow-lg">
+      <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+          <h1 class="mb-4 text-3xl font-extrabold text-gray-900 text-white md:text-5xl lg:text-6xl">Welcome <span class="text-transparent bg-clip-text bg-gradient-to-tl from-red-700 via-violet-500 to-violet-600">{{loggedInUser.username}}</span> to your profile!</h1>
+      </div>
+      <div class="divider"></div>
+      
+      <div class="divider"></div> 
+      <div class="grid h-20 card bg-base-300 rounded-box place-items-center text-white">
+          <form method="post" action="/auth/logout">
+          <button class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+          bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">LOGOUT</button>
+          </form>
+      </div>
+  </div>
 </div>

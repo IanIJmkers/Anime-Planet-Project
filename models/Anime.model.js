@@ -23,8 +23,9 @@ const animeSchema = new Schema(
     },
     airDate: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    // image?
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

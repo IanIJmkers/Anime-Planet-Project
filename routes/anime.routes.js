@@ -12,6 +12,8 @@ router.post("/anime/create/:id", (req, res) => {
     const requiredTitle = req.body.title;
     const requiredDescription = req.body.description;
     const requiredAirDate = req.body.airDate;
+    const requiredCharacter = req.body.characters;
+    const requiredImage=req.body.image;
 
     if (!requiredTitle  || !requiredDescription || !requiredAirDate) {
         return res.status(400).json({ error: "Please fill in all required fields"} )
@@ -37,6 +39,7 @@ router.get("/anime/anime-library", async (req, res) => {
                     episodes: anime.episodes,
                     aired: anime.aired.from.slice(0, 10),
                     genre: anime.genres[0].name,
+                    synopsis: anime.synopsis,
                 };
             })
             console.log(firstTen)
