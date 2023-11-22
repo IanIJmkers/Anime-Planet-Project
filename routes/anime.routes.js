@@ -50,22 +50,5 @@ router.get("/anime/anime-library", async (req, res) => {
 })
 
 
-// router.post("/create", async (req, res) => {
-//     try {
-//     const newAnime = await AnimeModel.create(req.body);
-//     console.log(newAnime);
-//     res.redirect("/celeb/celebrities");
-//     } catch (err) {
-//         console.log(err);
-//     }
-// });
-// router.get("/celebrities", async (req, res) => {
-//     try {
-//         const allCelebs = await CelebModel.find();
-//         console.log(allCelebs);
-//         res.render("celebrities/celebrities.hbs", { allCelebs });
-//     } catch (err) {
-//         console.log(err);
-//     }
-// })
+
 module.exports = router;

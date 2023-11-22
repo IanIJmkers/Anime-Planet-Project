@@ -8,7 +8,7 @@
             {{!-- <img class="h-10 inline" src="https://"> --}}
             <a href="/">
         
-                <img class="w-auto h-14 " src="../images/AP-LOGO.jpg">
+                <img class="w-auto h-24 " src="../images/AP-LOGO.jpg">
             </a>
             <ul class="md:flex md:items-center">
                 <li class="mx-4">          
@@ -20,6 +20,13 @@ bg-gray-600  hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset
                     <a href="/profile" class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
 bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">MY PROFILE</a>
                 </li> 
+
+                <li class="mx-4">          
+                    <form method="post" action="/auth/logout">
+    <button class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+          bg-gray-800 bg-violet-700 hover:bg-violet-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">LOGOUT</button>
+  </form>
+                </li> 
             </ul>        
 </nav>
 <div class="">
@@ -27,9 +34,23 @@ bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 fo
   <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
         
         <h1 class="mb-12 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">/MyAnimeLibrary</h1>
-        <a href="/anime/create" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full bg-gradient-to-tl from-red-700 via-violet-500 to-violet-600 text-white hover:bg-gray-200 hover:bg-gray-700" role="alert">
-            <span class="text-sm font-medium px-4 py-1.5">Create an anime!</span> 
-            <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+        <a href="/anime/create">
+            <button title="Add New" class="group cursor-pointer outline-none hover:rotate-90 duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50px"
+              height="50px"
+              viewBox="0 0 24 24"
+              class="stroke-violet-400 fill-none group-hover:fill-pink-800 group-active:stroke-pink-200 group-active:fill-pink-600 group-active:duration-0 duration-300"
+            >
+              <path
+                d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"
+                stroke-width="1.5"
+              ></path>
+              <path d="M8 12H16" stroke-width="1.5"></path>
+              <path d="M12 16V8" stroke-width="1.5"></path>
+            </svg>
+          </button>
         </a>
   </div>
 </header>
@@ -42,9 +63,11 @@ bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 fo
 <div class="grid gap-4 card w-96 bg-base-100 shadow-xl rounded-xl">
 
   <div class="card-body items-center text-center pt-10">
-    <h3 class="flex justify-center items-center text-5xl font-extrabold pb-5">{{this.title}}
+    <h3 class="flex justify-center items-center text-3xl font-extrabold pb-5">{{this.title}}
       <a href="/anime/{{this._id}}">
-          <span class="inline-flex justify-between items-center py-2.5 pr-4 pl-3.5 mb-1 ml-5 mr-2 text-sm text-gray-700 bg-gray-100 rounded-full bg-gray-900 text-white hover:bg-gray-200 hover:bg-gray-700">See More</span>
+          <button class="text-xs ml-6 hover:brightness-110 hover:animate-pulse font-bold py-3 px-6 rounded-full  bg-gradient-to-tl from-red-700 via-violet-500 to-violet-600 text-white">
+          See Anime
+    </button>
       </a>
     </h3>
 

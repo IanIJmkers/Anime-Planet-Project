@@ -2,7 +2,7 @@
             {{!-- <img class="h-10 inline" src="https://"> --}}
             <a href="/">
         
-                <img class="w-auto h-14 " src="/images/AP-LOGO.jpg">
+                <img class="w-auto h-24 " src="/images/AP-LOGO.jpg">
             </a>
             <ul class="md:flex md:items-center">
                 
@@ -35,13 +35,12 @@ bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 fo
 <div class="content-center grid gap-4 card object-scale-down h-46 w-96 bg-base-100 shadow-xl rounded-xl">
     <div class="card-body items-center text-center pt-10 pb-4">
         <h3 class="flex justify-center items-center text-5xl font-extrabold pb-5">{{this.title}}
-            <a href="{{this._id}}" class="">{{this.name}}
-                <span class="inline-flex justify-between items-center py-2.5 pr-4 pl-3.5 mb-1 ml-5 mr-2 text-sm text-gray-700 bg-gray-100 rounded-full bg-gray-900 text-white hover:bg-gray-200 hover:bg-gray-700">See More</span>
-            </a>
+            <a href="{{this._id}}" class="">{{this.name}}</a>
         </h3>
         <span class="mb-0.5 text-gray-800 lg:text-lg pt-10">Original Air Date: {{this.aired}}</span>
         <br>
         <span class="mb-0.5 text-gray-800 lg:text-lg pt-10">Genre: {{this.genre}}</p>
+        
         {{!-- <p>{{this.episodes}}</p> --}}
         <figure class="px-10 pb-10 pt-10 flex justify-center items-center">
             <img class="object-scale-down h-76 w-96" src="{{this.image}}" alt="{{this.name}}" width="300">

@@ -2,35 +2,99 @@
             {{!-- <img class="h-10 inline" src="https://"> --}}
             <a href="/">
         
-                <img class="w-auto h-14 " src="/images/AP-LOGO.jpg">
+                <img class="w-auto h-24 " src="/images/AP-LOGO.jpg">
             </a>
             <ul class="md:flex md:items-center">
                 <li class="mx-4">          
                     <a href="/" class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
 bg-gray-600  hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">MAIN MENU</a>
                 </li> 
-
-                <li class="mx-4">          
-                    <a href="/anime/user-anime-library" class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
-bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">MY ANIME LIBRARY</a>
-                </li> 
             </ul>        
 </nav>
 
-<div class="bg-cover grid grid-cols-1 gap-2 p-10"
-    style="background-image: url('../images/BLEACH.jpg') ">
-  <div class="flex flex-col w-full  pt-20 min-h-screen w-72 h-72 bg-violet-600 bg-opacity-50 backdrop-blur-md rounded drop-shadow-lg">
-      <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
-          <h1 class="mb-4 text-3xl font-extrabold text-gray-900 text-white md:text-5xl lg:text-6xl">Welcome <span class="text-transparent bg-clip-text bg-gradient-to-tl from-red-700 via-violet-500 to-violet-600">{{loggedInUser.username}}</span> to your profile!</h1>
-      </div>
-      <div class="divider"></div>
+
+ 
       
-      <div class="divider"></div> 
-      <div class="grid h-20 card bg-base-300 rounded-box place-items-center text-white">
-          <form method="post" action="/auth/logout">
-          <button class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
-          bg-gray-800 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">LOGOUT</button>
-          </form>
+     
+      
+  
+
+<div class="text-focus-in px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
+    <div class="flex flex-wrap items-center mx-auto max-w-7xl">
+      <div class="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
+        <div>
+          <div class="relative w-full max-w-lg">
+            <div class="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+
+            <div class="absolute rounded-full bg-fuchsia-300 -bottom-24 right-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+            <div class="relative">
+              <img class="img-focus-in object-cover object-center mx-auto rounded-lg shadow-2xl" src="./images/square.png">
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
+        <span class="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase"> Successfully logged in! </span>
+          <h1 class="text-focus-in mb-7 text-3xl font-extrabold text-gray-700  lg:text-6xl">Welcome <span class="text-transparent bg-clip-text bg-gradient-to-tl from-red-700 via-violet-500 to-violet-600">{{loggedInUser.username}}</span> to your profile!</h1>
+        <p class="mb-8 text-base leading-relaxed text-left text-gray-500">Feel free to customize your own library and check out our own anime library</p>
+        <div class="flex-col mt-0 lg:mt-6 max-w-7xl sm:flex">
+          <dl class="grid grid-cols-1 gap-12 md:grid-cols-2">
+            <div>
+              <dt class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 icon icon-tabler icon-tabler-aperture" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(72 12 12)"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(144 12 12)"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(216 12 12)"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(288 12 12)"></line>
+                </svg>
+              </dt>
+              <dd class="flex-grow">
+                <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600">My Anime Library</h2>
+                <p class="text-base leading-relaxed text-gray-400">Come check out your own custom Anime Library!</p>
+                <a href="/anime/user-anime-library" class="inline-flex items-center mt-6 font-semibold text-blue-500 md:mb-2 lg:mb-0 hover:text-neutral-600" title="read more">
+                  See more
+                  <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
+                  </svg>
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mb-5 text-blue-600 rounded-full bg-blue-50">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 icon icon-tabler icon-tabler-aperture" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(72 12 12)"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(144 12 12)"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(216 12 12)"></line>
+                  <line x1="3.6" y1="15" x2="14.15" y2="15" transform="rotate(288 12 12)"></line>
+                </svg>
+              </dt>
+              <dd class="flex-grow">
+                <h2 class="mb-3 text-lg font-medium tracking-tighter text-neutral-600">Our Own Anime Library</h2>
+                <p class="text-base leading-relaxed text-gray-400">Or take a look at our Anime Library!</p>
+                <a href="/anime-library/anime/anime-library" class="inline-flex items-center mt-6 font-semibold text-blue-500 md:mb-2 lg:mb-0 hover:text-neutral-600" title="read more">
+                  See More
+                  <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
+                  </svg>
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
   </div>
+<div class="text-focus-in grid h-20 card bg-base-300 rounded-box place-items-center text-white">
+  <form method="post" action="/auth/logout">
+    <button class="cursor-pointer rounded-lg border-2 border-primary/60 px-6 py-2 text-lg font-medium text-gray-100 md:py-3 md:px-8 hover:border-primary
+          bg-gray-800 bg-violet-700 hover:bg-violet-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">LOGOUT</button>
+  </form>
 </div>
