@@ -3,6 +3,7 @@ const router = express.Router();
 const Anime = require("../models/Anime.model");
 const User = require("../models/User.model");
 const {isLoggedIn} = require("../middleware/route-guard")
+const uploader = require("../middleware/cloudinary.config.js");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -27,12 +28,15 @@ router.get("/anime/anime-library", (req, res,) => {
 
 // GET
 router.get("/anime/user-anime-library", (req, res,) => {
-  Anime.find()
+  Anime.find({owner: req.session.currentUser._id})
   .then((response) => {
     console.log(response);
   
   res.render("anime/user-anime-library", { anime: response });
   })
+  .catch((error) => {
+    console.log(error);
+  });
 });
 
 
@@ -47,9 +51,10 @@ router.get('/anime/create', (req, res) => {
 });
 
 // POST
-router.post('/anime/create', (req, res) => {
+router.post('/anime/create', uploader.single("image"),(req, res) => {
   const newAnime = req.body;
-  Anime.create(newAnime)
+  console.log(req.file);
+  Anime.create({...newAnime, owner: req.session.currentUser._id, image: req.file.path})
   .then((response) => {
     console.log(response);
     res.redirect("/anime/user-anime-library");
