@@ -1,4 +1,5 @@
 const AnimeModel = require("../models/Anime.model");
+const APIAnime = require("../models/APIanime.model")
 
 // starter code in both routes/celebrities.routes.js and routes/movies.routes.js
 const router = require("express").Router();
@@ -26,23 +27,24 @@ router.get("/anime/anime-library", async (req, res) => {
     try {
         //console.log("Anime Route")
         // ask API for Anime
-        const animes = await fetch(
-            "https://api.jikan.moe/v4/anime"
-        );
-        const parsedAnimes = await animes.json();
-        const animeData = parsedAnimes.data
+        // const animes = await fetch(
+        //     "https://api.jikan.moe/v4/anime?page="
+        // );
+        // const parsedAnimes = await animes.json();
+        // const animeData = parsedAnimes.data
         //Variable that maps all of the animes and returns new array of 10 animes
-        const firstTen = animeData.map((anime) => {
-                return {
-                    name: anime.titles[0].title,
-                    image: anime.images.jpg.image_url,
-                    episodes: anime.episodes,
-                    aired: anime.aired.from.slice(0, 10),
-                    genre: anime.genres[0].name,
-                };
-            })
-            console.log(firstTen)
-            res.render('anime/anime-library.hbs', {animes: firstTen})
+        const animeData = await APIAnime.find()
+        // const firstTen = animeData.map((anime) => {
+        //         return {
+        //             name: anime.titles[0].title,
+        //             image: anime.images.jpg.image_url,
+        //             episodes: anime.episodes,
+        //             aired: anime.aired.from.slice(0, 10),
+        //             genre: anime.genres[0].name,
+        //         };
+        //     })
+        //     console.log(firstTen)
+            res.render('anime/anime-library.hbs', {animes: animeData})
     } catch(error) {
         console.log(error)
     }
