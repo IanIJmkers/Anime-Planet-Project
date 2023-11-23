@@ -11,7 +11,7 @@ const animeSchema = new Schema(
     },
     episodes: {
       type: String,
-      requireds: true,
+      required: true,
     },
     genre: {
       type: String,

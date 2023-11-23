@@ -17,10 +17,13 @@ router.get("/", (req, res, next) => {
 router.get("/anime/anime-library", (req, res,) => {
   Anime.find()
   .then((response) => {
-    console.log(response);
+    console.log("Hello World", response);
   
   res.render("anime/anime-library", { anime: response });
   })
+  .catch((error) => {
+    console.error(error);
+  });
 });
 
 

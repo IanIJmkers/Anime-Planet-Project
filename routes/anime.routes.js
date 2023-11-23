@@ -22,32 +22,45 @@ router.post("/anime/create/:id", (req, res) => {
     res.json({ success: true });
 });
 
-// External API Route
-router.get("/anime/anime-library", async (req, res) => {
-    try {
-        //console.log("Anime Route")
-        // ask API for Anime
-        const animes = await fetch(
-            "https://api.jikan.moe/v4/anime"
-        );
-        const parsedAnimes = await animes.json();
-        const animeData = parsedAnimes.data
-        //Variable that maps all of the animes and returns new array of 10 animes
-        const APIAnimeFound = await APIAnime.find()
-        const firstTen = animeData.map((anime) => {
-                return {
-                    name: anime.titles[0].title,
-                    image: anime.images.jpg.image_url,
-                    episodes: anime.episodes,
-                    aired: anime.aired.from.slice(0, 10),
-                    genre: anime.genres[0].name,
-                };
-            })
-            console.log(firstTen)
-            res.render('anime/anime-library.hbs', {animes: firstTen})
-    } catch(error) {
-        console.log(error)
-    }
-});
+// External API Route\
+
+router.get("/anime/anime-library", (req, res,) => {
+    APIAnime.find()
+    .then((response) => {
+      console.log("Hello World", response);
+    
+    res.render("anime/anime-library", { anime: response });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  });
+
+// router.get("/anime/anime-library", async (req, res) => {
+//     try {
+//         //console.log("Anime Route")
+//         // ask API for Anime
+//         const animes = await fetch(
+//             "https://api.jikan.moe/v4/anime"
+//         );
+//         const parsedAnimes = await animes.json();
+//         const animeData = parsedAnimes.data
+//         //Variable that maps all of the animes and returns new array of 10 animes
+//         const APIAnimeFound = await APIAnime.find()
+//         const firstTen = animeData.map((anime) => {
+//                 return {
+//                     name: anime.titles[0].title,
+//                     image: anime.images.jpg.image_url,
+//                     episodes: anime.episodes,
+//                     aired: anime.aired.from.slice(0, 10),
+//                     genre: anime.genres[0].name,
+//                 };
+//             })
+//             console.log(firstTen)
+//             res.render('anime/anime-library.hbs', {animes: firstTen})
+//     } catch(error) {
+//         console.log(error)
+//     }
+// });
 
 module.exports = router;
