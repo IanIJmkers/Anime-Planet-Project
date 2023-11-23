@@ -39,7 +39,6 @@ router.get("/anime/anime-library", async (req, res) => {
                     episodes: anime.episodes,
                     aired: anime.aired.from.slice(0, 10),
                     genre: anime.genres[0].name,
-                    synopsis: anime.synopsis,
                 };
             })
             console.log(firstTen)

@@ -3,6 +3,7 @@ const router = express.Router();
 const UserModel = require('../models/User.model');
 const bcryptjs = require('bcryptjs');
 const {isLoggedOut} = require("../middleware/route-guard")
+const upLoader = require("../middleware/cloudinary.config")
 
 // GET route for signup
 router.get("/signup", (req, res) => {
