@@ -5,12 +5,13 @@ const fetchAnime = async() => {
         //console.log("Anime Route")
         // ask API for Anime
         const animes = await fetch(
-            "https://api.jikan.moe/v4/anime?page=3"
+            "https://api.jikan.moe/v4/anime?page=2"
         );
         const parsedAnimes = await animes.json();
         const animeData = parsedAnimes.data
         //Variable that maps all of the animes and returns new array of 10 animes
         const firstTen = animeData.map((anime) => {
+            console.log("Anime")
                 return {
                     name: anime.titles[0].title,
                     image: anime.images.jpg.image_url,
