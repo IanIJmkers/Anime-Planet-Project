@@ -9,10 +9,6 @@ const animeSchema = new Schema(
       required: true,
       unique: true
     },
-    episodes: {
-      type: String,
-      required: true,
-    },
     genre: {
       type: String,
       required: false,
